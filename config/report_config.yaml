@@ -1,0 +1,60 @@
+title: "Kansas City Royals - Baseball Pitching Report"
+athlete:
+  name: "Pitcher 001"
+  throwing_hand: "RHP"
+  organization: "Kansas City Royals"
+  extra:
+    Height: "6'2\""
+    Weight: "205 lbs"
+starts:
+  - label: "Start 1 - 2024-03-15"
+    filepath: "data/pitcher001_start1.csv"
+    opponent: "CHW"
+    color: "#0d47a1"
+  - label: "Start 2 - 2024-03-22"
+    filepath: "data/pitcher001_start2.csv"
+    opponent: "STL"
+    color: "#c62828"
+plots:
+  time_column: "phase_pct"
+  kinematic_sequence:
+    variables:
+      - column: "pelvis_rotation_deg"
+        label: "Pelvis Rotation"
+        color: "#1b9e77"
+      - column: "torso_rotation_deg"
+        label: "Torso Rotation"
+        color: "#d95f02"
+      - column: "lead_knee_extension_deg"
+        label: "Lead Knee Extension"
+        color: "#7570b3"
+      - column: "shoulder_external_rotation_deg"
+        label: "Shoulder External Rotation"
+        color: "#e7298a"
+  velocity_overlay:
+    column: "hand_velocity_mph"
+    label: "Hand Velocity (mph)"
+points_of_interest:
+  events:
+    SFC: "Stride Foot Contact"
+    MER: "Max External Rotation"
+    BR: "Ball Release"
+summary_metrics:
+  - label: "Peak Hand Velocity (mph)"
+    column: "hand_velocity_mph"
+    reducer: "max"
+    precision: 1
+  - label: "Peak Shoulder External Rotation (deg)"
+    column: "shoulder_external_rotation_deg"
+    reducer: "max"
+    precision: 1
+  - label: "Peak Lead Knee Extension (deg)"
+    column: "lead_knee_extension_deg"
+    reducer: "max"
+    precision: 1
+output:
+  path: "reports/pitcher001_pitching_report.pdf"
+  dpi: 150
+  figsize: [11, 8.5]
+  background_color: "white"
+  grid: true
